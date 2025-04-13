@@ -8,7 +8,7 @@ const UserProtectWrapper = ({children}) => {
     const token = localStorage.getItem('token')
     const navigate = useNavigate()
     const {user, setUser} = useContext(UserDataContext)
-    const [isLoading, setIsLoading] =useState(true)
+    const [isLoading, setIsLoading] = useState(true)
  
     useEffect(() => {
         if(!token) {
@@ -22,7 +22,7 @@ const UserProtectWrapper = ({children}) => {
         }).then(response => {
             if(response.status === 200){
                 setUser(response.data.user)
-                isLoading(false)
+                setIsLoading(false)
             }
         }).catch(err => {
             console.log(err);
